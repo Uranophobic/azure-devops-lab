@@ -9,3 +9,6 @@ pwd
 ```
 
 L'output indicava un percorso interno alla home Linux e non un percorso `/mnt/c`.
+
+
+Tra i comandi incontrati nel laboratorio UD01 ho trovato particolarmente utile `git rev-parse --show-toplevel`, perché consente di capire subito se si sta lavorando nel repository corretto e di individuarne la directory principale.
