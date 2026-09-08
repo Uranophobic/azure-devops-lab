@@ -198,10 +198,18 @@ La verifica è stata ripetuta anche tramite Azure Portal, come si può verificar
 
 ## Diagnosi
 
-Non sono state riscontrate anomalie significative durante il provisioning. Le risorse create tramite Azure CLI sono state successivamente verificate sia tramite CLI sia tramite Azure Portal, confermando la corretta configurazione.
+- errore o anomalia analizzata: durante il cleanup Azure CLI ha restituito l'errore `AADSTS530035: Access has been blocked by security defaults`, impedendo il completamento dell'autenticazione e quindi l'esecuzione dei comandi Azure.
+
+- ipotesi: il problema era legato alla policy di autenticazione del tenant e non alla sottoscrizione o alle risorse create
+
+- controllo: sono stati verificati l'accesso al portale Azure e la presenza della sottoscrizione e delle risorse. È stato inoltre controllato che l'errore si presentasse durante la fase di autenticazione della CLI.
+
+- correzione: è stato ripristinato l'accesso ad Azure CLI effettuando nuovamente l'autenticazione con una configurazione compatibile con le policy del tenant.
+
+- verifica successiva: dopo il ripristino dell'autenticazione, `az account show` ha nuovamente mostrato la sottoscrizione con stato `Enabled` e `IsDefault = True`. Il cleanup è stato quindi completato e il comando `az group exists --name "$AUTO_RG"` ha restituito `false`, confermando l'eliminazione del Resource Group.
 
 ## Cleanup e consegna
 
-- risorse eliminate:
-- controllo finale:
-- hash abbreviato e messaggio del commit:
+- risorse eliminate: eliminato il Resource Group `rg-cea-ud02-auto-26be3545` e, con esso, la VNet `vnet-cea-auto` e lo Storage Account `stceaauto26be3545`.
+- controllo finale: eseguito `az group exists --name "$AUTO_RG"` dopo `az group wait --name "$AUTO_RG" --deleted`.
+- hash abbreviato e messaggio del commit: da compilare dopo il commit finale.

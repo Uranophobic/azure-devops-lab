@@ -137,10 +137,13 @@ Ha prodotto il seguente output anonimizzato:
 
 ## Cleanup
 
-- operazione di eliminazione:
-- controllo utilizzato:
-- risultato finale:
-- eventuale anomalia e soluzione:
+- operazione di eliminazione: eliminazione del Resource Group `rg-cea-ud02-3175f0df` tramite `az group delete --name "$LAB_RG" --yes --no-wait`. L'eliminazione del Resource Group ha comportato anche la rimozione delle risorse contenute, tra cui la VNet `vnet-cea-ud02` e lo Storage Account `stcea3175f0df`.
+
+- controllo utilizzato: prima dell'eliminazione è stato verificato che il Resource Group esistesse tramite `az group exists --name "$LAB_RG"`, che ha restituito `true`. Successivamente è stato utilizzato `az group wait --name "$LAB_RG" --deleted` per attendere il completamento dell'eliminazione e infine `az group exists --name "$LAB_RG"` per verificarne l'effettiva rimozione.
+
+- risultato finale: il comando `az group exists --name "$LAB_RG"` ha restituito `false`, confermando che il Resource Group e le risorse contenute sono stati eliminati correttamente.
+
+- eventuale anomalia e soluzione: nessuna anomalia riscontrata durante il cleanup del laboratorio guidato.
 
 ## Rilevanza professionale
 
