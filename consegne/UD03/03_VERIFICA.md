@@ -33,9 +33,7 @@ In questo modo è possibile distinguere un problema di autenticazione da un prob
 ## Parte C — Caso situazionale
 
 14. Il primo errore è l'assegnazione di `Contributor` sull'intera sottoscrizione a un tecnico che deve soltanto consultare una VNet è eccessivamente permissiva rispetto all'attività richiesta.
-
 Il secondo errore è interpretare il ruolo `Contributor` come sufficiente per gestire le role assignment. `Contributor` permette di gestire le risorse, ma normalmente non include il permesso necessario per assegnare ruoli Azure RBAC.
-
 Inoltre l'errore `ScopeLocked` durante il cleanup segnala la presenza di un lock che ne impdesce l'eliminazione.
 15. Per il tecnico che deve soltato consultare la VNet la scelta più appropriata sarebbe quella del ruolo `Reader`, sullo scope della singola VNet. Eventualmente fosse necessario si potrebbe pensare di assegnargli il ruolo `Reader` sull'intera resource group.
 16. Il tecnico non riesce ad assegnare `Reader` al collega perché il ruolo `Contributor` normalmente non comprende il permesso necessario per creare role assignment. L'impossibilità di eliminare lo scope è invece un problema differente in quanto indica che è presente un lock `CanNotDelete`.
