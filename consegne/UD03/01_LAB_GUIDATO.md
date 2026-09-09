@@ -6,11 +6,10 @@
 - percorso Entra eseguito: **A**
 - resource group temporaneo: **`rg-cea-identity-6dc911`**
 
-## Identità e assegnazione RBAC
-
 | Principal anonimizzato | Ruolo | Scope | Diretta/ereditata | Motivo |
 |---|---|---|---|---|
-| Gruppo di sicurezza | `Reader` | `/subscriptions/<omitted>/resourceGroups/rg-cea-identity-6dc911` | Diretta | Consentire la consultazione delle risorse del resource group senza permetterne la modifica. |
+| Utente | `Owner` | `/subscriptions/<omitted>` | Ereditata | Gestione completa delle risorse e degli accessi |
+| Gruppo di sicurezza  `grp-cea-readers-6dc911` | `Reader` | `/subscriptions/<omitted>/resourceGroups/rg-cea-identity-6dc911` | Diretta | Consentire la consultazione delle risorse del resource group senza permetterne la modifica. |
 
 Come prima cosa ho verificato di avere le autorizzazioni necessarie per creare un **utente** e un **gruppo** all'interno di Microsoft Entra ID.
 Dopo aver verificato questa possibilità, ho creato un utente di test denominato `cea-lab-6dc911`.
