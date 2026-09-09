@@ -35,7 +35,17 @@ Per verificarne il funzionamento ho tentato di eliminare il resource group trami
 
 ## Cleanup
 
-Da completare al termine del laboratorio con la rimozione degli oggetti temporanei e la verifica finale dell'eliminazione del resource group.
+Sono stati rimossi gli oggetti temporanei creati durante il laboratorio guidato:
+
+- budget `budget-cea-6dc911`;
+- assegnazione RBAC `Reader` del gruppo `grp-cea-readers-6dc911`;
+- management lock `lock-cea-delete`;
+- utente temporaneo `cea-lab-6dc911`;
+- gruppo di sicurezza `grp-cea-readers-6dc911`;
+- resource group `rg-cea-identity-6dc911`.
+
+Dopo la rimozione del lock è stato verificato che `az lock list` non restituisse più lock applicati.
+Dopo l'eliminazione del resource group è stato eseguito il comando `az group show --name "$LAB_RG" --output table`. Il controllo ha restituito `ResourceGroupNotFound`, confermando che `rg-cea-identity-6dc911` non era più presente.
 
 ## Rilevanza professionale
 

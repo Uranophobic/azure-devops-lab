@@ -72,12 +72,23 @@ Il lock impedisce l'eliminazione del resource group, ma non ne impedisce la cons
 Questo comportamento è stato verificato eseguendo prima una lettura tramite `az group show` e successivamente un tentativo di eliminazione, che ha restituito `ScopeLocked`.
 
 ### Cleanup
+Al termine delle verifiche sono stati rimossi gli oggetti temporanei utilizzati durante il laboratorio.
 
-Da completare al termine del laboratorio con la rimozione degli oggetti temporanei e la verifica finale dell'eliminazione del resource group.
+L'ordine seguito è stato:
 
+1. eliminazione dei budget temporanei `budget-cea-6dc911` e `budget-TeamFinOps-6dc911`;
+2. rimozione delle role assignment `Reader` temporanee;
+3. rimozione del lock `lock-cea-delete`;
+4. eliminazione dell'utente temporaneo `cea-lab-6dc911`;
+5. eliminazione dei gruppi temporanei `grp-cea-readers-6dc911` e `grp-TeamFinOps-6dc911`;
+6. eliminazione del resource group `rg-cea-identity-6dc911`;
+7. verifica finale dell'assenza delle risorse temporanee.
+
+La corretta eliminazione del resource group è stata verificata tramite: `az group show --name "$LAB_RG" --output table`
+Il comando ha restituito `ResourceGroupNotFound` confermando che il resource group temporaneo non era più presente.
 
 ## Risultato finale
 
 - output anonimizzati utilizzati: output di `az role assignment list`, `az lock list`, `az group show` e dell'errore `ScopeLocked`, omettendo o anonimizzando dati personali e identificativi non necessari;
-- cleanup verificato:
-- hash abbreviato e messaggio del commit:
+- cleanup verificato: Si
+- hash abbreviato e messaggio del commit: Commit e4b918c UD03: Laboratorio autonomo
