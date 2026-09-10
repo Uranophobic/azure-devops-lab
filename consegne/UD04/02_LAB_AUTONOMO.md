@@ -97,9 +97,9 @@ Nel laboratorio è stato utilizzato `Standard_LRS` e sono stati memorizzati file
 
 ### Cleanup
 
-Da effettuare al termine di tutte le attività UD04.
+Al termine delle attività ho rimosso le assegnazioni temporanee del ruolo `Storage Blob Data Contributor` associate al mio utente e ho eliminato i file e le variabili temporanee utilizzate durante il laboratorio.
 
 ## Risultato finale
 
 - nessun segreto pubblicato: si
-- hash abbreviato e messaggio del commit:
+- hash abbreviato e messaggio del commit: 4a4b72b UD04: Laboratorio Autonomo

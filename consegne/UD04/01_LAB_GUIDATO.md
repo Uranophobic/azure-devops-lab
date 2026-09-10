@@ -151,7 +151,7 @@ Nel laboratorio è stato utilizzato `Standard_LRS` e sono stati caricati file di
 
 ### Cleanup finale
 
-Da effettuare al termine delle attività di laboratorio.  
+Al termine delle attività ho rimosso le assegnazioni temporanee del ruolo `Storage Blob Data Contributor` associate al mio utente e ho eliminato i file e le variabili temporanee utilizzate durante il laboratorio.
 
 ## Rilevanza professionale
 
