@@ -58,7 +58,9 @@ Le risorse utilizzate in questo laboratorio, come VNet, subnet, NSG e NIC, non i
 
 ### Cleanup
 
-Da effettuare alla fine delle attività dell'UD05.
+Il Resource Group `rg-cea-network-11868d` è stato eliminato insieme alle risorse create durante il laboratorio.
+
+La rimozione è stata verificata tramite il comando `az group exists --name "$LAB_RG"`, che ha restituito `false`.
 
 ## Rilevanza professionale
 

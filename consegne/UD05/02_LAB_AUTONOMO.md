@@ -63,8 +63,8 @@ Durante il laboratorio è stata introdotta anche la regola `Deny-Web-Postgres-Au
 ## Cleanup e risultato finale
 
 - regola autonoma rimossa: `Deny-Web-Postgres-Auto`
-- cleanup verificato:
-- hash abbreviato e messaggio del commit:
+- cleanup verificato: si
+- hash abbreviato e messaggio del commit: 2e6a6fd  UD05: Laboratorio Autonomo
 
 
 
