@@ -117,7 +117,7 @@ L'evento corrisponde alla modifica effettuata sul Resource Group tramite l'aggiu
 
 ## Cleanup
 
-- diagnostic setting rimossa:
-- RG CLI test eliminato:
-- RG PowerShell test eliminato:
-- RG principale eliminato:
+- diagnostic setting rimossa: sì
+- RG CLI test eliminato: sì, verifica `az group exists`, ritorna `false`
+- RG PowerShell test eliminato: sì, verifica `az group exists`, ritorna `false`
+- RG principale eliminato: sì, verifica `az group exists`, ritorna `false`

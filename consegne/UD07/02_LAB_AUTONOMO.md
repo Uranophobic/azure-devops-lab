@@ -155,5 +155,5 @@ La verifica conferma quindi che il comando funziona correttamente utilizzando il
 
 ## 9. Cleanup
 
-- `rg-ud07-auto`:
-- `rg-ud07-auto-ps`: 
+- `rg-ud07-auto`: eliminato, verifica `az group exists`, ritorna `false`
+- `rg-ud07-auto-ps`: eliminato, verifica `az group exists`, ritorna `false`
