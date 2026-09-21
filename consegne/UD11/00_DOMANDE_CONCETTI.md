@@ -81,3 +81,7 @@ Controllerei:
 - che l'immagine e il tag presenti in ACR siano corretti;
 - che la managed identity abbia i permessi necessari per eseguire il pull da ACR;
 - che le variabili d'ambiente siano configurate correttamente.
+
+
+## APPROFONDIMENTO: MANAGED IDENTITY, IL SUO MECCANISMO E PERCHÉ È PIÙ CONVENIENTE RISPETTO AD ALTRI SISTEMI 
+da completare
