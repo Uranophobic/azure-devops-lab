@@ -84,4 +84,20 @@ Controllerei:
 
 
 ## APPROFONDIMENTO: MANAGED IDENTITY, IL SUO MECCANISMO E PERCHÉ È PIÙ CONVENIENTE RISPETTO AD ALTRI SISTEMI 
-da completare
+
+Una Managed Identity è un’identità gestita da Azure e associata a una risorsa. Consente a quella risorsa di autenticarsi verso altri servizi Azure senza dover salvare password, secret o altre credenziali di accesso.
+
+Quando la risorsa deve accedere a un altro servizio Azure, non utilizza una password. Tramite il meccanismo della Managed Identity, Azure riconosce l’identità associata alla risorsa e Microsoft Entra ID rilascia un token temporaneo che rappresenta quella identità. Il token viene poi utilizzato per autenticarsi verso il servizio di destinazione.
+
+Il servizio di destinazione è la risorsa Azure a cui si vuole accedere. Nel nostro laboratorio, il servizio di destinazione è Azure Container Registry (ACR), perché la Container App deve effettuare il pull dell’immagine privata.
+
+Una volta ricevuto il token, ACR riconosce l’identità rappresentata dal token e verifica tramite Azure RBAC quali operazioni è autorizzata a eseguire. Nel nostro caso, alla Managed Identity della Container App è stato assegnato il ruolo `AcrPull`, che permette di scaricare l’immagine dal registry.
+
+Esistono due tipi principali di Managed Identity:
+
+- `system-assigned`: viene creata direttamente sulla risorsa e il suo ciclo di vita è legato a essa. Se la risorsa viene eliminata, viene eliminata anche l’identità;
+- `user-assigned`: è una risorsa Azure indipendente, che può essere associata a più risorse e riutilizzata.
+
+In conclusione, una Managed Identity può essere vista come la "carta d’identità" di una risorsa Azure. Questa identità viene gestita tramite Microsoft Entra ID, che è il servizio che gestisce le identità digitali.
+
+Quando la risorsa deve accedere a un altro servizio, utilizza la propria Managed Identity per ottenere da Microsoft Entra ID un token temporaneo. Questo token attesta l’identità della risorsa verso il servizio di destinazione. Il servizio riconosce quindi chi sta effettuando la richiesta e verifica, tramite Azure RBAC, quali operazioni quell’identità è autorizzata a eseguire.
