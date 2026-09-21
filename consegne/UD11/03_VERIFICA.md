@@ -65,10 +65,10 @@ Mi aspetterei status: `ok` e version: `v2`. Se necessario, controllerei anche ch
 
 ## Cleanup finale
 
-- resource list verificata:
-- Resource Group eliminato:
-- `az group exists` = false:
-- immagini Docker locali UD11 rimosse:
+- resource list verificata: sì
+- Resource Group eliminato: sì
+- `az group exists` = `false`: sì
+- immagini Docker locali UD11 rimosse: sì
 - prune globale usato: NO
 
 
