@@ -1,7 +1,7 @@
 variable "location" {
   description = "Regione Azure del laboratorio."
   type        = string
-  default     = "westeurope"
+  default     = "italynorth"
 }
 
 variable "resource_group_name" {
