@@ -91,6 +91,9 @@ workspace: clean: all esegue una pulizia completa del workspace del Job su un Ag
 
 ## 16.
 **Risposta:**
+workspace: clean: all pulisce l'intero workspace del Job prima dell'esecuzione, eliminando eventuali file lasciati da run precedenti. È particolarmente importante su un Agent self-hosted, perché il filesystem viene riutilizzato tra più esecuzioni.
+checkout: self, clean: true riguarda invece soltanto il repository scaricato dalla pipeline: prima del checkout pulisce la working directory Git per evitare che modifiche o file residui del repository influenzino l'esecuzione.
+Quindi workspace: clean: all agisce a livello dell'intero workspace del Job, mentre checkout: self, clean: true agisce sulla copia del repository.
 
 ## 17.
 **Risposta:**
@@ -106,10 +109,14 @@ La pipeline dovrebbe quindi essere sufficientemente autonoma da preparare durant
 
 ## 19.
 **Risposta:**
-
+La prima pipeline GitHub usa la Azure Pipelines GitHub App invece di creare un PAT manuale perché la GitHub App permette ad Azure Pipelines di accedere al repository con un'integrazione dedicata e con permessi limitabili al repository necessario.
+In questo modo non dobbiamo creare, memorizzare e gestire manualmente un Personal Access Token associato a un utente. La GitHub App separa quindi meglio l'accesso della pipeline dall'identità personale dello sviluppatore.
 
 ## 20.
 **Risposta:**
+In produzione, pool-ud09-wsl rappresenterebbe un vero Agent Pool aziendale, cioè un insieme di macchine o Agent messi a disposizione per eseguire i Job delle pipeline.
 
 ## 21.
 **Risposta:**
+Un Pool con tre Agent non garantisce automaticamente tre Job paralleli perché il parallelismo dipende anche dai limiti configurati o concessi in Azure DevOps.
+Avere tre Agent significa soltanto avere tre possibili esecutori disponibili. Per eseguire realmente tre Job contemporaneamente servono anche abbastanza parallel jobs disponibili.
