@@ -2,3 +2,9 @@
 *.tfstate
 *.tfstate.*
 *.tfplan
+*.hcl
+__pycache__/
+*.pyc
+.git
+tests
+*.log
