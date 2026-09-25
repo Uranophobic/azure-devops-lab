@@ -10,5 +10,6 @@
 - Stage Test: si
 - Stage BuildPush: si 
 - run CI: completata con successo
-- Build ID:
-- tag ACR:
+- Build ID: 8
+- tag ACR: 8
+ 
